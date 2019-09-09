@@ -5,9 +5,9 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
+
     public static AudioClip AttackSound, DeathSound, JumpSound, KillSound, PickupSound, RunSound;
     static AudioSource audioSrc;
-       
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,6 @@ public class SoundManagerScript : MonoBehaviour
         KillSound = Resources.Load<AudioClip>("Kill");
         PickupSound = Resources.Load<AudioClip>("Pickup");
         RunSound = Resources.Load<AudioClip>("Run");
-
     }
 
     // Update is called once per frame
@@ -51,5 +50,4 @@ public class SoundManagerScript : MonoBehaviour
                 break;
         }
     }
-
 }
