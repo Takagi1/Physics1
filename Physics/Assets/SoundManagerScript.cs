@@ -5,21 +5,19 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-    public static AudioClip AttackSound, DeathSound, KillSound, JumpSound, PickupSound, RunSound;
-    static AudioSource audioSrc;
 
+    public static AudioClip AttackSound, DeathSound, JumpSound, KillSound, PickupSound, RunSound;
+    static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
 
-        AttackSound = Resources.Load< AudioClip > ("Attack");
-        DeathSound = Resources.Load< AudioClip > ("Death");
-        JumpSound = Resources.Load< AudioClip > ("Jump");
-        KillSound = Resources.Load< AudioClip > ("Kill");
-        PickupSound = Resources.Load< AudioClip > ("Pickup");
-        RunSound = Resources.Load< AudioClip > ("Run");
-
-        audioSrc = GetComponent<AudioSource>();
+        AttackSound = Resources.Load<AudioClip>("Attack");
+        DeathSound = Resources.Load<AudioClip>("Death");
+        JumpSound = Resources.Load<AudioClip>("Jump");
+        KillSound = Resources.Load<AudioClip>("Kill");
+        PickupSound = Resources.Load<AudioClip>("Pickup");
+        RunSound = Resources.Load<AudioClip>("Run");
     }
 
     // Update is called once per frame
@@ -52,4 +50,4 @@ public class SoundManagerScript : MonoBehaviour
                 break;
         }
     }
- }
+}
