@@ -19,7 +19,7 @@ public class SoundManagerScript : MonoBehaviour
         PickupSound = Resources.Load< AudioClip > ("Pickup");
         RunSound = Resources.Load< AudioClip > ("Run");
 
-        audioScr = GetComponent<AudioSource>();
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
