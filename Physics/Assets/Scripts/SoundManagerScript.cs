@@ -5,9 +5,6 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-
-    public static AudioClip AttackSound, DeathSound, JumpSound, KillSound, PickupSound, RunSound;
-    static AudioSource audioSrc;
     public AudioSource BGM;
 
     public static AudioClip AttackSound, BossHitSound, JumpSound, LoseSound, PlayerHitSound;
@@ -19,10 +16,6 @@ public class SoundManagerScript : MonoBehaviour
         AttackSound = Resources.Load<AudioClip>("Attack");
         BossHitSound = Resources.Load<AudioClip>("BossHit");
         JumpSound = Resources.Load<AudioClip>("Jump");
-
-        KillSound = Resources.Load<AudioClip>("Kill");
-        PickupSound = Resources.Load<AudioClip>("Pickup");
-        RunSound = Resources.Load<AudioClip>("Run");
         LoseSound = Resources.Load<AudioClip>("Lose");
         PlayerHitSound = Resources.Load<AudioClip>("PlayerHit");
     }
