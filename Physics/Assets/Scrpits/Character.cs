@@ -7,11 +7,11 @@ public class Character : MonoBehaviour
    
     //Body 
     private Rigidbody2D rigid;
-    //Attack
-    public GameObject bullet;
 
-    public float speed = 1;
-    private float PlayerDirection = 1;
+    //Player Health
+    public int Health = 1;  //Set to 3 for basic health
+    public float speed = 1; //Movment Speed 
+    private float PlayerDirection = 1; // player direction 1 is right, -1 is left
     
     void Start()
     {
@@ -21,6 +21,8 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //For player movement
         if (Input.GetKey(KeyCode.LeftArrow)) {
             print("left key was pressed");
             rigid.velocity = new Vector2((speed*-1), 0);
@@ -30,17 +32,29 @@ public class Character : MonoBehaviour
             print("right key was pressed");
             rigid.velocity = new Vector2(speed, 0);
             PlayerDirection = 1;
+        } else {
+            rigid.velocity = new Vector2(0, 0);
         }
 
+        //for sprite reverse
+        if (PlayerDirection == 1)
+        {
+            this.transform.localScale = new Vector2(25, 50);
+        }
+        else
+        {
+            this.transform.localScale = new Vector2(-25, 50);
+        }
+
+        //For attacking
         if (Input.GetKey(KeyCode.X))
         {
             Attack();
         }
     }
 
-    public void Attack()
+    void Attack()
     {
-        var tBullet = Instantiate(bullet, gameObject.transform.position, bullet.transform.rotation) as GameObject;
-        tBullet.GetComponent<Bullet>().bulletDirection = PlayerDirection;
+
     }
 }
