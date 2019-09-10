@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Bullet : MonoBehaviour
 {
 
     Animator anim;
-    public float bulletDirection = 1;
+    float moveDirection = -1;
     public float speed = 3.0f;
     public int damage = 5;
     int A;
@@ -34,8 +30,6 @@ public class Bullet : MonoBehaviour
 
     void MoveBullet()
     {
-        float moveDirection = bulletDirection;
-
         float translate = moveDirection * speed * Time.deltaTime;
         _transform.Translate(translate, 0, 0);
 

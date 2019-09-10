@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aa5600101a20d9c458e188ce7d06969e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PlayerHealth: {instanceID: 0}
+  - Player: {instanceID: 0}
+  - BossHealth: {instanceID: 0}
+  - Boss: {fileID: 7531707822979500027, guid: 79ee966bc433cfb4780ebe9d7425603c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
