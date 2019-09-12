@@ -8,6 +8,9 @@ public class Character : MonoBehaviour
     //Body 
     private Rigidbody2D rigid;
 
+    //Animation Controller
+    Animator animator;
+
     //Player Health
     public int Health = 1;  //Set to 3 for basic health
     public float speed = 1; //Movment Speed 
@@ -16,6 +19,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         rigid = GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -49,12 +53,14 @@ public class Character : MonoBehaviour
         //For attacking
         if (Input.GetKey(KeyCode.X))
         {
-            Attack();
+            Attack1();
         }
     }
 
-    void Attack()
+    void Attack1()
     {
-
+        AttackOn();
     }
+    void AttackOn() { animator.SetBool("Attack1", true); }
+    void AttackOff() { animator.SetBool("Attack1", false); }
 }
