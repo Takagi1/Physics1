@@ -5,21 +5,20 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-    public static AudioClip AttackSound, DeathSound, KillSound, JumpSound, PickupSound, RunSound;
+
+    public AudioSource BGM;
+
+    public static AudioClip AttackSound, BossHitSound, JumpSound, LoseSound, PlayerHitSound;
     static AudioSource audioSrc;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        AttackSound = Resources.Load< AudioClip > ("Attack");
-        DeathSound = Resources.Load< AudioClip > ("Death");
-        JumpSound = Resources.Load< AudioClip > ("Jump");
-        KillSound = Resources.Load< AudioClip > ("Kill");
-        PickupSound = Resources.Load< AudioClip > ("Pickup");
-        RunSound = Resources.Load< AudioClip > ("Run");
-
-        audioSrc = GetComponent<AudioSource>();
+        AttackSound = Resources.Load<AudioClip>("Attack");
+        BossHitSound = Resources.Load<AudioClip>("BossHit");
+        JumpSound = Resources.Load<AudioClip>("Jump");
+        LoseSound = Resources.Load<AudioClip>("Lose");
+        PlayerHitSound = Resources.Load<AudioClip>("PlayerHit");
     }
 
     // Update is called once per frame
@@ -28,28 +27,32 @@ public class SoundManagerScript : MonoBehaviour
         
     }
 
-    public static void Playsound(string clip)
+    public void ChangeBGM(AudioClip music)
+    {
+        BGM.Stop();
+        BGM.clip = music;
+        BGM.Play();
+    }
+
+    public static void Playsound (string clip)
     {
         switch (clip)
         {
             case "Attack":
                 audioSrc.PlayOneShot(AttackSound);
                 break;
-            case "Death":
-                audioSrc.PlayOneShot(DeathSound);
+            case "BossHit":
+                audioSrc.PlayOneShot(BossHitSound);
                 break;
             case "Jump":
                 audioSrc.PlayOneShot(JumpSound);
                 break;
-            case "Kill":
-                audioSrc.PlayOneShot(KillSound);
+            case "Lose":
+                audioSrc.PlayOneShot(LoseSound);
                 break;
-            case "Pickup":
-                audioSrc.PlayOneShot(PickupSound);
-                break;
-            case "Run":
-                audioSrc.PlayOneShot(RunSound);
+            case "PlayerHit":
+                audioSrc.PlayOneShot(PlayerHitSound);
                 break;
         }
     }
- }
+}
