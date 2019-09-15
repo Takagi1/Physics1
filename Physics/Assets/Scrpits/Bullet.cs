@@ -5,12 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    Animator anim;
     float moveDirection = -1;
-    public float speed = 3.0f;
-    public int damage = 5;
+    public float speed = 5.0f;
     int A;
-
 
     private Transform _transform;
 
@@ -18,7 +15,6 @@ public class Bullet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        anim = GetComponent<Animator>();
         _transform = transform;
     }
 
@@ -36,21 +32,9 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        A = 1;
-        a(0);
-        if (coll.gameObject.tag == "baddy")
+        if (coll.gameObject.tag == "Player")
         {
-            //coll.collider.gameObject.GetComponent<Enemy>().Damage(damage);
-        }
-    }
-    void a(int b)
-    {
-        if (A == 1)
-        {
-            anim.SetBool("A", true);
-        }
-        if (b == 1)
-        {
+            coll.collider.gameObject.GetComponent<Character>().Damage();
             Destroy(gameObject);
         }
     }

@@ -7,12 +7,22 @@ public class BadGuy : MonoBehaviour
 
     public int Health = 3; //set 3 as normal
 
+    Animator animator; //For animation
+    // For random height
+    Random random;
+
     public GameObject Bullet;
     public Transform pos;
+
+    int min = 1;
+    int max = 20;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>(); // get the animator
+
+        random = new Random();
         //start attack coroutine
         StartCoroutine(Attack());
          
@@ -21,14 +31,39 @@ public class BadGuy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Health == 0)
+        {
+            //TODO Add in game over
+        }
     }
 
     IEnumerator Attack()
     {
-        print(Time.time);
-        Instantiate(Bullet, pos.position, pos.rotation);
+        Fire(Random.Range(min, max));
+        print("random text" + Random.Range(min, max));
         yield return new WaitForSecondsRealtime(4);
         StartCoroutine(Attack());
     }
+
+    void UpAttack() { }
+
+    void Fire(int Height) {
+        if (Height >= 10)
+        {
+            Instantiate(Bullet, pos.position, pos.rotation);
+            animator.SetBool("Up", true);
+        } else
+        {
+            Instantiate(Bullet, new Vector3 (pos.position.x, pos.position.y - 15, pos.position.z), pos.rotation);
+            animator.SetBool("Down", true);
+        }
+    }
+
+    public void Damage()
+    {
+        Health -= 1;
+    }
+
+    void UpOff() { animator.SetBool("Up", false); }
+    void DownOff() { animator.SetBool("Down", false); }
 }

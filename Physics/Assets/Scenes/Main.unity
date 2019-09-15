@@ -770,6 +770,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5886395889364906217}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &720223569
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720223565}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cfa588c1737f2945a961e101ba66180, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &962425454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1025,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 3026238314551402163, guid: 0133c03e654f15a4996c830d2d3b3d78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3026238314551402161, guid: 0133c03e654f15a4996c830d2d3b3d78,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,7 +1117,7 @@ PrefabInstance:
     - target: {fileID: 7817043708332505256, guid: 79ee966bc433cfb4780ebe9d7425603c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.8
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7817043708332505256, guid: 79ee966bc433cfb4780ebe9d7425603c,
         type: 3}
@@ -1139,6 +1163,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817043708332505256, guid: 79ee966bc433cfb4780ebe9d7425603c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817043708332505256, guid: 79ee966bc433cfb4780ebe9d7425603c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5512439544419458683, guid: 79ee966bc433cfb4780ebe9d7425603c,
         type: 3}
