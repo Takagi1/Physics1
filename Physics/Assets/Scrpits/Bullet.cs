@@ -30,11 +30,12 @@ public class Bullet : MonoBehaviour
         _transform.Translate(translate, 0, 0);
 
     }
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
         {
-            coll.collider.gameObject.GetComponent<Character>().Damage();
+            
+            coll.gameObject.GetComponent<Character>().Damage();
             Destroy(gameObject);
         }
     }

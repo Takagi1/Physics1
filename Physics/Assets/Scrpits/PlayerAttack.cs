@@ -11,24 +11,20 @@ public class PlayerAttack : MonoBehaviour
         StartCoroutine(WaitAndDestroy());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D coll)
     {
-        
-    }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
+        print(coll.gameObject.tag);
         if (coll.gameObject.tag == "Boss")
         {
-            coll.collider.gameObject.GetComponent<BadGuy>().Damage();
+            print("hit check");
+            coll.gameObject.GetComponent<BadGuy>().Damage();
             Destroy(gameObject);
         }
-        
     }
+
     IEnumerator WaitAndDestroy()
     {
-        yield return new WaitForSecondsRealtime(4);
-        Destroy(gameObject);
+        yield return new WaitForSecondsRealtime(100.5f);
+        Destroy(this.gameObject);
     }
 }

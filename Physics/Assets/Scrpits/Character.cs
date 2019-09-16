@@ -15,8 +15,8 @@ public class Character : MonoBehaviour
     public int Health = 3;  //Set to 3 for basic health
 
 
-    public float speed = 1; //Movment Speed 
-    public float jump = 1; // Jump Speed
+    public float speed = 25; //Movment Speed 
+    public float jump = 100; // Jump Speed
 
     // For player movement
     float translate;
@@ -41,28 +41,22 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Health <= 0)
-        {
-            //TODO Add in game over
-        }
         //For player movement
         translate = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         transform.Translate(translate, 0, 0);
 
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            print("left key was pressed");
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             PlayerDirection = -1;
         }
-        else if (Input.GetKey(KeyCode.RightArrow)) {
-            print("right key was pressed");
+        else if (Input.GetKeyDown(KeyCode.RightArrow)) {
             PlayerDirection = 1;
         }
 
         // For Player Jump
-        if (Input.GetKey(KeyCode.UpArrow) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
-            print("up key was pressed");
             rigid.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
+            isGrounded = false;
         }
 
         //for sprite reverse
@@ -76,7 +70,7 @@ public class Character : MonoBehaviour
         }
 
         //For attacking
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             Attack1();
         }
@@ -87,17 +81,21 @@ public class Character : MonoBehaviour
         if (coll.gameObject.tag == "Ground")
         {
             isGrounded = true;
-        } else
-        {
-            isGrounded = false;
         }
     }
 
     void Attack1()
     {
         AttackOn();
-        Instantiate(Hurtbox, pos.position, pos.rotation);
+        Instantiate(Hurtbox, new Vector3 (pos.position.x + 10, pos.position.y, pos.position.z), pos.rotation);
     }
+
+    public void restartPos()
+    {
+        transform.position = new Vector2(-104.4f, -16.3f);
+    }
+
+
     void AttackOn() { animator.SetBool("Attack1", true); }
     void AttackOff() { animator.SetBool("Attack1", false); }
 

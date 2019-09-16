@@ -14,6 +14,8 @@ public class BadGuy : MonoBehaviour
     public GameObject Bullet;
     public Transform pos;
 
+    public GameObject Player;
+
     int min = 1;
     int max = 20;
 
@@ -31,17 +33,13 @@ public class BadGuy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Health == 0)
-        {
-            //TODO Add in game over
-        }
     }
 
     IEnumerator Attack()
     {
         Fire(Random.Range(min, max));
         print("random text" + Random.Range(min, max));
-        yield return new WaitForSecondsRealtime(4);
+        yield return new WaitForSecondsRealtime(3);
         StartCoroutine(Attack());
     }
 
@@ -50,11 +48,11 @@ public class BadGuy : MonoBehaviour
     void Fire(int Height) {
         if (Height >= 10)
         {
-            Instantiate(Bullet, pos.position, pos.rotation);
+            Instantiate(Bullet, new Vector3(pos.position.x - 25, pos.position.y, pos.position.z), pos.rotation);
             animator.SetBool("Up", true);
         } else
         {
-            Instantiate(Bullet, new Vector3 (pos.position.x, pos.position.y - 15, pos.position.z), pos.rotation);
+            Instantiate(Bullet, new Vector3 (pos.position.x - 30, pos.position.y - 15, pos.position.z), pos.rotation);
             animator.SetBool("Down", true);
         }
     }
@@ -62,6 +60,7 @@ public class BadGuy : MonoBehaviour
     public void Damage()
     {
         Health -= 1;
+        Player.GetComponent<Character>().restartPos();
     }
 
     void UpOff() { animator.SetBool("Up", false); }
