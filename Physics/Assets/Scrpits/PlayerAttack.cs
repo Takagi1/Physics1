@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator WaitAndDestroy()
     {
-        yield return new WaitForSecondsRealtime(100.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         Destroy(this.gameObject);
     }
 }
