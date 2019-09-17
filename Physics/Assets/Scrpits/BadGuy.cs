@@ -39,7 +39,7 @@ public class BadGuy : MonoBehaviour
     {
         Fire(Random.Range(min, max));
         print("random text" + Random.Range(min, max));
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(2);
         StartCoroutine(Attack());
     }
 
