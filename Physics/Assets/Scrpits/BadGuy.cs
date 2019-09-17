@@ -38,7 +38,6 @@ public class BadGuy : MonoBehaviour
     IEnumerator Attack()
     {
         Fire(Random.Range(min, max));
-        print("random text" + Random.Range(min, max));
         yield return new WaitForSecondsRealtime(2.5f);
         StartCoroutine(Attack());
     }

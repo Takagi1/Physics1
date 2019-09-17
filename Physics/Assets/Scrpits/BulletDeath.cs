@@ -8,6 +8,7 @@ public class BulletDeath : MonoBehaviour
     {
         if (coll.gameObject.tag == "Bullet")
         {
+
             Destroy(coll.gameObject);
         }
     }
