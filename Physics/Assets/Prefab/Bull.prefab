@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1516976608607938103}
   - component: {fileID: -5259858042395232610}
   - component: {fileID: -3954982987649813745}
-  - component: {fileID: -1189241863545048679}
+  - component: {fileID: 660044835352559666}
   m_Layer: 0
   m_Name: Bull
   m_TagString: Bullet
@@ -112,7 +112,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!50 &-1189241863545048679
+--- !u!50 &660044835352559666
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
